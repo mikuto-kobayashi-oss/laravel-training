@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ofice', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+        Schema::create('offices', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->autoIncrement()->primary();
             $table->string('name',50);//施設名
             $table->string('address',255)->unique();//ビル名
             $table->char('post_code',7)->nullable();//郵便番号
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ofice');
+        Schema::dropIfExists('offices');
     }
 };

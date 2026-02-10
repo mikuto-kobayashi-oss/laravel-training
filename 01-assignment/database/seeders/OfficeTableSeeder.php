@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-class OficeTableSeeder extends Seeder
+class OfficeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class OficeTableSeeder extends Seeder
     {
         $now = Carbon::now();
 
-        DB::table('ofice')->insert([
+        DB::table('offices')->insert([
             [
                 'id' => 3,
                 'name' => '物件３',

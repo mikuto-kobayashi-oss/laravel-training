@@ -8,8 +8,8 @@ Route::get('/', function () {
 
 Route::get('/hello', [App\Http\Controllers\HelloController::class, 'index']);
 
-Route::get('/ofice', [App\Http\Controllers\OficeController::class, 'getUser']);
+Route::get('/office', [App\Http\Controllers\OfficeController::class, 'getUser']);
 
-Route::get('/post/create', function () {
-    return view('post.create');
-});
+Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create']);
+
+Route::post('/post', [App\Http\Controllers\PostController::class, 'store']);
