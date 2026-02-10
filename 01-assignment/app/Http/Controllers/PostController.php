@@ -14,6 +14,9 @@ class PostController extends Controller
     }
     public function store(StorePostRequest $request)
 {
+    if ($request->expectsJson()) {
+        return response()->json(['message' => '登録しました']);
+    }
      Office::create($request->validated());
      return redirect('/post/create')->with('success', '登録完了');
 }
