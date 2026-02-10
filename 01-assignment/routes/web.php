@@ -7,4 +7,9 @@ Route::get('/', function () {
 });
 
 Route::get('/hello', [App\Http\Controllers\HelloController::class, 'index']);
+
 Route::get('/ofice', [App\Http\Controllers\OficeController::class, 'getUser']);
+
+Route::get('/post/create', function () {
+    return view('post.create');
+});
