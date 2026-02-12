@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\Model;
 
     public static function getList()
     {
-        return Office::where('del_flg', 0)->get();
+        return Office::with('memos')->where('del_flg', 0)->get();
     }
-    
+
     public function memos()
     {
         return $this->hasMany(Memo::class);

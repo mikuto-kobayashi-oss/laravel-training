@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;    
 
 use App\Models\Office;    
-use Illuminate\View\View;    
+use Illuminate\View\View;  
+use App\Models\Memo; 
 
 class OfficeController extends Controller    
 {    
-   public function getUser(): View    
+   public function getOffices(): View    
    {    
-       $offices = Office::getList();
-       return view("office", ["offices" => $offices]);    
+        $offices = Office::getList();
+        //dd($offices);
+        return view("office", ["offices" => $offices]);
    }    
 }

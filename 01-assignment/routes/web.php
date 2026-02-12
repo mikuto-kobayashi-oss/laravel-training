@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/hello', [App\Http\Controllers\HelloController::class, 'index']);
 
-Route::get('/office', [App\Http\Controllers\OfficeController::class, 'getUser']);
+Route::get('/office', [App\Http\Controllers\OfficeController::class, 'getOffices']);
 
 Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
 

@@ -10,6 +10,7 @@
       <th>郵便番号</th>
       <th>階数</th>
       <th>コメント</th>
+      <th>メモ</th>
     </tr>
   </thead>
   
@@ -21,6 +22,11 @@
         <td>{{ $office->post_code }}</td>
         <td>{{ $office->stair }}</td>
         <td>{{ $office->comment }}</td>
+        <td>
+            @foreach ($office->memos as $memo)
+                {{ $memo->text }}<br>
+            @endforeach
+        </td>
         <td>
         <button type="button" onclick="location.href='{{ route('post.edit', $office->id) }}'">
             更新
