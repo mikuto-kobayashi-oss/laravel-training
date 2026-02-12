@@ -9,7 +9,7 @@ class OfficeController extends Controller
 {    
    public function getUser(): View    
    {    
-       $offices = Office::all();    
+       $offices = Office::getList();
        return view("office", ["offices" => $offices]);    
    }    
 }

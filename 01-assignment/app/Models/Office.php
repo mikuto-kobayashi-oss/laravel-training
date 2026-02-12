@@ -16,4 +16,8 @@ use Illuminate\Database\Eloquent\Model;
         'stair',
         'comment',
     ];
+    public static function getList()
+{
+    return Office::orderBy('id')->get();
+}
 }
