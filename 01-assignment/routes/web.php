@@ -18,3 +18,5 @@ Route::post('/post', [PostController::class, 'store'])->name('post.store');;
 Route::get('/post/{office}/edit', [PostController::class, 'edit'])->name('post.edit');
 
 Route::put('/post/{office}', [PostController::class, 'update'])->name('post.update');
+
+Route::delete('/post/{office}', [PostController::class, 'delete'])->name('post.delete');

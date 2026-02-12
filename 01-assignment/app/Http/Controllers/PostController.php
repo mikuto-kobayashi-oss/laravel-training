@@ -21,7 +21,7 @@ class PostController extends Controller
             return response()->json(['message' => '登録しました']);
         }
         Office::create($request->validated());
-        return redirect('/post.create')->with('success', '登録完了');
+        return redirect('/post/create')->with('success', '登録完了');
     }
 
     public function edit(Office $office)
@@ -36,5 +36,14 @@ class PostController extends Controller
         });
 
         return redirect('/office')->with('success', '更新しました');
+    }
+    
+    public function delete(Office $office)
+    {
+        DB::transaction(function () use ($office) {
+            $office->update(['del_flg' => 1]);
+        });
+
+        return redirect('/office')->with('success', '削除しました');
     }
 }

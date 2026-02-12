@@ -24,7 +24,12 @@
         <td>
         <button type="button" onclick="location.href='{{ route('post.edit', $office->id) }}'">
             更新
-          </button>
+        </button>
+        <form action="{{ route('post.delete', $office->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">削除</button>
+        </form>
         </td>
       </tr>
     @endforeach

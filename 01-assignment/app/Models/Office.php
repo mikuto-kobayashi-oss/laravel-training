@@ -15,9 +15,10 @@ use Illuminate\Database\Eloquent\Model;
         'post_code',
         'stair',
         'comment',
+        'del_flg',
     ];
     public static function getList()
 {
-    return Office::orderBy('id')->get();
+    return Office::where('del_flg', 0)->get();
 }
 }
