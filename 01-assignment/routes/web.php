@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +21,7 @@ Route::get('/post/{office}/edit', [PostController::class, 'edit'])->name('post.e
 Route::put('/post/{office}', [PostController::class, 'update'])->name('post.update');
 
 Route::delete('/post/{office}', [PostController::class, 'delete'])->name('post.delete');
+
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::post('/login', [LoginController::class, 'login'])->name('login');
