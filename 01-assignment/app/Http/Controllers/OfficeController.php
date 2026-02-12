@@ -8,8 +8,12 @@ use App\Models\Memo;
 
 class OfficeController extends Controller    
 {    
-   public function getOffices(): View    
+   public function getOffices()
    {    
+        if (!session('user_id')) {
+            return redirect('/login')->with('error', 'ログインしてください');
+        }
+
         $offices = Office::getList();
         //dd($offices);
         return view("office", ["offices" => $offices]);

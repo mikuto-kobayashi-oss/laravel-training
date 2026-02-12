@@ -4,6 +4,8 @@
 
 <table border="1" cellpadding="12" cellspacing="0">
   <thead>
+    <h1>ログイン中ユーザー: {{ session('name') }}</h1>
+    <h1>ID: {{ session('user_id') }}</h1>
     <tr>
       <th>施設名</th>
       <th>ビル名</th>
