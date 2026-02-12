@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char('post_code',7)->nullable();//郵便番号
             $table->integer('stair');//募集階
             $table->string('comment', 255)->default("お問い合わせください");//コメント
+            $table->integer('del_flg')->default(0);
             $table->timestamps();
         });
     }
