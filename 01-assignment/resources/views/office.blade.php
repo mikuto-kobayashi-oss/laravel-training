@@ -12,6 +12,7 @@
       <th>コメント</th>
     </tr>
   </thead>
+  
   <tbody>
     @foreach ($offices as $office)
       <tr>
@@ -20,10 +21,23 @@
         <td>{{ $office->post_code }}</td>
         <td>{{ $office->stair }}</td>
         <td>{{ $office->comment }}</td>
+        <td>
+        <button type="button" onclick="location.href='{{ route('post.edit', $office->id) }}'">
+            更新
+          </button>
+        </td>
       </tr>
     @endforeach
   </tbody>
 </table>
+<button type="button" onclick="location.href='{{ url('/post/create') }}'">新規登録</button>
 
+@if (session('success'))
+<div class="alert alert-danger">
+    <ul>
+        <li>{{ session('success') }}</li>
+    </ul>
+</div>
+@endif
 </body>
 </html>

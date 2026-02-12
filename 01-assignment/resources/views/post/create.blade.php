@@ -7,15 +7,21 @@
     <body>
         <h1>物件登録</h1>
 
-        <form action="{{ url('/post') }}" method="post">
-            @csrf
-            <input type="text" name="name" placeholder="施設名">
-            <input type="text" name="address" placeholder="ビル名">
-            <input type="text" name="post_code" placeholder="郵便番号">
-            <input type="text" name="stair" placeholder="階数">
-            <input type="text" name="comment" placeholder="コメント">
-            <input type="submit" value="登録">
-            <button type="button" class="ajax-submit">Ajax登録</button>
+        <form method="POST"
+        action="{{ isset($office) ? route('post.update', $office) : route('post.store') }}">
+        @csrf
+
+        @if(isset($office))
+            @method('PUT')
+        @endif
+        
+            <input type="text" name="name" value="{{ old('name', $office->name ?? '') }}" placeholder="施設名">
+            <input type="text" name="address" value="{{ old('address', $office->address ?? '') }}" placeholder="ビル名">
+            <input type="text" name="post_code" value="{{ old('post_code', $office->post_code ?? '') }}" placeholder="郵便番号">
+            <input type="text" name="stair" value="{{ old('stair', $office->stair ?? '') }}" placeholder="階数">
+            <input type="text" name="comment" value="{{ old('comment', $office->comment ?? '') }}" placeholder="コメント">
+            <button type="submit">{{ isset($office) ? '更新' : '登録' }}</button>
+            @if(!isset($office))<button type="button" class="ajax-submit">Ajax登録</button>@endif
         </form>
 
         <script>
@@ -65,6 +71,7 @@
             });
         });
         </script>
+
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -74,6 +81,7 @@
             </ul>
         </div>
         @endif
+
         @if (session('success'))
         <div class="alert alert-danger">
             <ul>
@@ -81,5 +89,6 @@
             </ul>
         </div>
         @endif
+
     </body>
 </html>

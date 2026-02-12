@@ -24,7 +24,7 @@ class StorePostRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'address' => 'required|unique:offices|max:255',
-            'post_code' => 'nullable|max:7',
+            'post_code' => 'nullable|size:7',
             'stair' => 'required|integer',
             'comment' => 'nullable|max:255',
         ];
